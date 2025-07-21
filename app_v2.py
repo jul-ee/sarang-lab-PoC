@@ -80,12 +80,12 @@ with tab2:
     st.header("QSAR 예측: 신규 분자 활성 예측")
     
     # 사전 훈련된 모델과 피처 목록 로드
-    model, model_message = load_pretrained_model("sar-analysis-app/data/qsar_model_final.joblib")
-    feature_list = load_feature_list("sar-analysis-app/data/features.json")
+    model, model_message = load_pretrained_model("data/qsar_model_final.joblib")
+    feature_list = load_feature_list("data/features.json")
     
     if model and feature_list:
         st.success(model_message)
-        training_data = load_data("sar-analysis-app/data/large_sar_data.csv")
+        training_data = load_data("data/large_sar_data.csv")
         if training_data is not None:
             
             comparison_df = prepare_comparison_data(training_data)

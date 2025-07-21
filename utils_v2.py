@@ -30,7 +30,7 @@ def load_data(uploaded_file):
 # --- QSAR 모델 로드 및 예측용 피처 생성 ---
 
 @st.cache_data
-def load_feature_list(path="sar-analysis-app/data/features.json"):
+def load_feature_list(path="data/features.json"):
     """훈련에 사용된 피처 목록을 불러옵니다."""
     try:
         with open(path, 'r') as f:
@@ -54,7 +54,7 @@ def smiles_to_descriptors(smiles, feature_list):
     return np.nan_to_num(np.array(descriptor_values), nan=0.0, posinf=0.0, neginf=0.0)
 
 @st.cache_resource
-def load_pretrained_model(model_path="sar-analysis-app/data/qsar_model_final.joblib"):
+def load_pretrained_model(model_path="data/qsar_model_final.joblib"):
     """사전 훈련된 QSAR 모델 파일을 불러옵니다."""
     try:
         model = joblib.load(model_path)
